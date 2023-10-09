@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/PestoBiggerIceCream",
+  "definitions": {
+    "PestoBiggerIceCream": {
+      "type": "object",
+      "properties": {
+        "flavour": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "const": 1.99
+        },
+        "stock": {
+          "type": "null"
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PestoIngredients"
+          }
+        },
+        "best_sales": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/PestoBigIceCream"
+          }
+        }
+      },
+      "required": [
+        "flavour",
+        "price",
+        "stock",
+        "ingredients",
+        "best_sales"
+      ],
+      "additionalProperties": false
+    },
+    "PestoIngredients": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        },
+        "first_purchase": {
+          "type": "boolean"
+        },
+        "plan": {
+          "type": "string",
+          "enum": [
+            "STANDARD",
+            "BRONZE",
+            "SILVER",
+            "GOLD"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "address",
+        "age",
+        "first_purchase",
+        "plan"
+      ],
+      "additionalProperties": false
+    },
+    "PestoBigIceCream": {
+      "type": "object",
+      "properties": {
+        "beautiful": {
+          "type": "number",
+          "const": 3.14128
+        },
+        "great": {
+          "type": "boolean",
+          "const": true
+        },
+        "awesome": {
+          "type": "string"
+        },
+        "wonderful": {
+          "type": "boolean"
+        },
+        "superdooper": {
+          "type": "string",
+          "const": "we don't need quotes to declare the interface"
+        },
+        "flavour": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "const": 1.99
+        },
+        "stock": {
+          "type": "null"
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PestoIngredients"
+          }
+        }
+      },
+      "required": [
+        "beautiful",
+        "great",
+        "awesome",
+        "wonderful",
+        "superdooper",
+        "flavour",
+        "price",
+        "stock",
+        "ingredients"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

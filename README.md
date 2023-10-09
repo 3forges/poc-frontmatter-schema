@@ -24,3 +24,4 @@ Useful articles:
 * tools:
   * https://www.jsonschema2pojo.org/
   * https://stackoverflow.com/questions/7341537/tool-to-generate-json-schema-from-json-data
+  * https://astexplorer.net/

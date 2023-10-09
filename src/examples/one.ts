@@ -24,7 +24,7 @@ const iceCreamData = {
   flavour: "Pistachio",
   price: 1.99,
   stock: null,
-  customers: [
+  ingredients: [
     {
       name: "Bernard",
       address: "1, Avenue des Champs Élysées, 75008 Paris",

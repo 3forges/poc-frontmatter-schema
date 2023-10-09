@@ -1,0 +1,16 @@
+{
+  "model": {
+    "flavour": "Pistachio",
+    "price": 1.99,
+    "stock": null,
+    "type": "icecream",
+    "text": "",
+    "picture": ""
+  },
+  "required": {
+    "flavour": "Pistachio",
+    "price": 1.99,
+    "stock": null,
+    "type": "icecream"
+  }
+}
