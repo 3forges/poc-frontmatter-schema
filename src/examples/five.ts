@@ -107,8 +107,8 @@ class PestoConstructorParser implements SubNodeParser {
         // console.log(` [PestoConstructorParser#supportsNode] node`, node )
         console.log(` [PestoConstructorParser#supportsNode] context.getArguments()`, context.getArguments() )
         console.log(` [PestoConstructorParser#supportsNode] reference?.getName()`, reference?.getName() )
-        console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getSourceFile() :`, node.getSourceFile() )
-        console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getChildAt(0) :`, node.getChildAt(0) )
+        // console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getSourceFile() :`, node.getSourceFile() )
+        // console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getChildAt(0) :`, node.getChildAt(0) )
         console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getChildCount() :`, node.getChildCount() )
         console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getChildren().length :`, node.getChildren().length )
         console.log(` >>>>>>>> [PestoConstructorParser#supportsNode] node.getText() :`, node.getText() )
@@ -147,6 +147,72 @@ const schemaStringZ = JSON.stringify(schemaZ, null, 2);
 try {
     fs.writeFileSync(output_pathZ, schemaStringZ);
     console.log(` SCHEMA GENERATED: ${output_pathZ}`)
+} catch (error) {
+    console.error(error)
+}
+
+
+
+/**
+ * ---------------------------
+ * ---------------------------
+ * ---------------------------
+ * REAL WORLD PESTO EXAMPLES
+ */
+
+console.log(`/** \n
+ * --------------------------- \n
+ * --------------------------- \n
+ * --------------------------- \n
+ * REAL WORLD PESTO EXAMPLES \n
+ */ \n`)
+const configPestoTshirt: any = {
+    path: "./.tests_assets/bigIceCreamData.ts",
+    tsconfig: "./.tests_assets/tsconfig.json",
+    type: "PestoTshirt", // Or <type-name> if you want to generate schema for that one type only
+};
+/*
+const configPestoPantalon: any = {
+    path: "./.tests_assets/bigIceCreamData.ts",
+    tsconfig: "./.tests_assets/tsconfig.json",
+    type: "PestoPantalon", // Or <type-name> if you want to generate schema for that one type only
+};
+const configPestoChaussure: any = {
+    path: "./.tests_assets/bigIceCreamData.ts",
+    tsconfig: "./.tests_assets/tsconfig.json",
+    type: "PestoChaussure", // Or <type-name> if you want to generate schema for that one type only
+};
+*/
+
+/*
+const programPesto = createProgram(configPestoTshirt);
+// We configure the parser an add our custom parser to it.
+const parserPesto = createParser(programPesto, configPestoTshirt, (prs) => {
+    prs.addNodeParser(new PestoConstructorParser()); // Unfortunately, it seems my custom parser is not used...
+});
+*/
+
+// const formatterPesto = createFormatter(configPestoTshirt);
+// const generatorPesto = new SchemaGenerator(programPesto, parserPesto, formatterPesto, configPestoTshirt);
+// const schemaPesto = generatorPesto.createSchema(configPestoTshirt.type);
+const schemaPestoTshirt = tsj.createGenerator(configPestoTshirt).createSchema(configPestoTshirt.type);
+const output_pathPestoTshirt = `./.tests_assets/PestoTshirt.PestoFormatter.Schema.json`
+
+const schemaPestoChaussure = tsj.createGenerator(configPestoTshirt).createSchema(configPestoTshirt.type);
+const output_pathPestoChaussure = `./.tests_assets/PestoChaussure.PestoFormatter.Schema.json`
+
+const schemaPestoPantalon = tsj.createGenerator(configPestoTshirt).createSchema(configPestoTshirt.type);
+const output_pathPestoPantalon = `./.tests_assets/PestoPantalon.PestoFormatter.Schema.json`
+
+const schemaStringPestoTshirt = JSON.stringify(schemaPestoTshirt, null, 2);
+const schemaStringPestoPantalon = JSON.stringify(schemaPestoPantalon, null, 2);
+const schemaStringPestoChaussure = JSON.stringify(schemaPestoChaussure, null, 2);
+try {
+    fs.writeFileSync(output_pathPestoTshirt, schemaStringPestoTshirt);
+    fs.writeFileSync(output_pathPestoPantalon, schemaStringPestoPantalon);
+    fs.writeFileSync(output_pathPestoChaussure, schemaStringPestoChaussure);
+    
+    console.log(` SCHEMA GENERATED: ${output_pathPestoTshirt}`)
 } catch (error) {
     console.error(error)
 }

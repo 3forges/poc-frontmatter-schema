@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/PestoTshirt",
+  "definitions": {
+    "PestoTshirt": {
+      "type": "object",
+      "properties": {
+        "denommination": {
+          "type": "string"
+        },
+        "taille": {
+          "type": "string",
+          "enum": [
+            "XXS",
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL"
+          ]
+        },
+        "prix": {
+          "type": "number"
+        },
+        "marque": {
+          "type": "string"
+        },
+        "monnaie": {
+          "$ref": "#/definitions/Monnaie"
+        },
+        "description": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pictures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PestoPicture"
+          }
+        }
+      },
+      "required": [
+        "denommination",
+        "taille",
+        "prix",
+        "marque",
+        "monnaie",
+        "description",
+        "categories",
+        "pictures"
+      ],
+      "additionalProperties": false,
+      "description": "Exemple 3: des T-shirts :"
+    },
+    "Monnaie": {
+      "type": "string",
+      "enum": [
+        "EUR",
+        "USD",
+        "AUD",
+        "CRO"
+      ],
+      "description": "Exemple 1: définition du type de contenu \"Chaussure\""
+    },
+    "PestoPicture": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
