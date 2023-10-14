@@ -21,6 +21,7 @@
   "dependencies": {
     "fluent-json-schema": "4.2.0-beta.0",
     "json-schema-generator": "^2.0.6",
+    "quicktype-core": "^23.0.76",
     "to-json-schema": "^0.2.5",
     "ts-json-schema-generator": "^1.3.0"
   }

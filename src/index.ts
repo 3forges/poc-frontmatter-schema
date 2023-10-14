@@ -4,4 +4,5 @@ import "./examples/two";
 import "./examples/three";
 import "./examples/four";
 import "./examples/five";
+import "./examples/six";
 
