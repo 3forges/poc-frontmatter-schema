@@ -23,7 +23,7 @@ async function quicktypeJSON(targetLanguage: string, typeName: string, jsonStrin
     return await quicktype({
         inputData,
         lang: targetLanguage,
-        outputFilename: `src/examples/.quicktype.generated/quicktype.generated.ts`,
+        outputFilename: `./src/examples/.quicktype.generated/quicktype.generated.ts`,
         inferEnums: false // that's how to force gnerate Arrayof string instead of an enum
     });
 }
